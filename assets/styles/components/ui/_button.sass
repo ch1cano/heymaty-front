@@ -1,0 +1,127 @@
+.btn
+  border: 0
+  padding: 0
+  background: none
+  cursor: pointer
+  transition: all .3s
+  position: relative
+  display: inline-flex
+  align-items: center
+  white-space: nowrap
+  color: $white
+  &--center
+    justify-content: center
+  &--column
+    flex-direction: column
+
+  &-primary
+    color: $primary
+    background: $btn-bg
+    border: 3px solid $btn-border
+    &:hover
+      background: $primary
+      border-color: $primary
+      color: $black
+
+  &-dark
+    background: #363636
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    border-radius: 5px
+    color: $primary
+    &:hover
+      background: $primary
+      color: $black
+
+  &-header
+    height: 60px
+    background: linear-gradient(180deg, #262626 0%, #433F32 100%)
+    border: 3px solid $primary
+    box-shadow: 0px 21px 48px rgba(0, 0, 0, 0.25)
+    border-radius: 5px
+    font-family: $RO
+    font-size: 24px
+    line-height: 29px
+    color: $primary
+    &:hover
+      background: $primary
+      color: $black
+
+  &-salon
+    background: #434343
+    border: 2px solid #727272
+    border-radius: 5px
+    &:hover
+      border-color: $primary
+      background: $primary
+      color: $black
+
+  &-wallet
+    height: 60px
+    font-size: 25px
+    line-height: 30px
+    font-family: $RO
+    background: #444444
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    border-radius: 10px
+    &:hover
+      color: $black
+      background: $primary
+
+  &-tarrif
+    height: 60px
+    color: $primary
+    font-family: $RO
+    font-size: 36px
+    line-height: 43px
+    background: #444444
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    border-radius: 10px
+    &:hover
+      color: $black
+      background: $primary
+
+  &-borp
+    color: $primary
+    background: #2E2E2E
+    border: 2px solid $primary
+    border-radius: 5px
+    &:hover
+      background: $primary
+      color: $black
+
+  &-borg
+    color: #828282
+    background: #2E2E2E
+    border: 2px solid #828282
+    border-radius: 5px
+    &:hover
+      border-color: $white
+      color: $white
+
+  &--normal
+    height: 50px
+    font-size: 18px
+    line-height: 21px
+    font-weight: 500
+    border-radius: 5px
+
+  &--default
+    height: 60px
+    font-size: 20px
+    line-height: 23px
+    font-weight: bold
+
+  &--big
+    height: 65px
+    font-family: $RO
+    font-size: 25px
+    line-height: 30px
+
+  &--bigger
+    height: 82px
+    font-size: 36px
+    line-height: 43px
+    font-family: $RO
+
+  &:disabled
+    opacity: .25

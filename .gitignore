@@ -1,0 +1,24 @@
+.DS_Store
+node_modules
+/dist
+
+node_modules
+
+.nuxt
+
+.idea
+
+package-log.json
+
+# local env files
+.env
+.env.local
+.env.*.local
+.env.save*
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.env2

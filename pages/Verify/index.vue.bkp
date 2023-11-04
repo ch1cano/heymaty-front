@@ -1,0 +1,98 @@
+<template>
+  <div class="wrap">
+    <div class="verify-page">
+      <h1>{{ $t("verifyPage.verification") }}</h1>
+
+      <form class="fields">
+        <p>
+          {{
+            user && !user.nationalId
+              ? $t("verifyPage.pleaseUploadNationalId")
+              : $t("verifyPage.pleaseAwait")
+          }}
+        </p>
+
+        <div v-if="user && !user.nationalId" class="upload-avatar">
+          <label for="uploadAvatar">
+            <input
+              id="uploadAvatar"
+              @change="uploadAvatar"
+              type="file"
+              accept="image/*"
+            />
+            {{ $t("verifyPage.attachId") }}
+          </label>
+
+          <div v-if="form.doc" class="upload-avatar__preview">
+            <img :src="form.doc.src.src" />
+            <a @click.prevent="form.doc = null" href="#" />
+          </div>
+        </div>
+
+        <button v-if="user && !user.nationalId" @click.prevent="submit()">
+          {{ $t("verifyPage.sendButton") }}
+        </button>
+      </form>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapState, mapActions } from "vuex";
+
+export default {
+  name: "PageVerify",
+  data() {
+    return {
+      form: {
+        doc: null,
+      },
+    };
+  },
+  computed: {
+    ...mapState("user", ["user"]),
+  },
+  methods: {
+    ...mapActions("model", ["uploadVerify"]),
+
+    async uploadAvatar(e) {
+      const file = e.target.files[0];
+      try {
+        const response = await this.$funcs.returnPreview(file);
+        this.form.doc = {
+          file,
+          src: response,
+        };
+      } catch (e) {
+        // this.errors.avatar.status = true
+        // this.errors.avatar.text = 'Не менее 400x400px'
+      }
+    },
+
+    async submit() {
+      if (!this.form.doc) {
+        this.$notify.error({
+          title: this.$t("verifyPage.notifications.errorTitle"),
+          message: this.$t("verifyPage.notifications.errorAttachId"),
+        });
+        return false;
+      }
+      const form = new FormData();
+      form.append("id_card", this.form.doc.file);
+
+      const response = await this.uploadVerify(form);
+      if (response && response.type === "error") {
+        this.$notify.error({
+          title: this.$t("verifyPage.notifications.errorTitle"),
+          message: this.$t("verifyPage.notifications.errorGeneric"),
+        });
+        return false;
+      }
+      this.$notify.success({
+        message: this.$t("verifyPage.notifications.successUploaded"),
+      });
+      this.$router.push(this.localePath("/"));
+    },
+  },
+};
+</script>

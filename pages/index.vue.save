@@ -1,0 +1,148 @@
+<template>
+  <div>
+    <div class="index-first-block">
+      <div class="wrap">
+        <div class="text">
+          <span>
+            Найдите себе девушку по подписке
+          </span>
+          Здесь вы можете найти себе девушку или просто подругу, которая поддержи
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="index-filter flex">
+        <div class="select">
+          <a class="link">
+            Страна
+          </a>
+          <ul>
+            <li>
+              <input
+                id="ch1"
+                type="checkbox"
+                class="checkbox"
+              >
+              <label for="ch1">
+                Вариант 1
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="select">
+          <a class="link">
+            Город
+          </a>
+          <ul>
+            <li>
+              <input
+                id="ch3"
+                type="checkbox"
+                class="checkbox"
+              >
+              <label for="ch3">
+                Вариант 1
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="select">
+          <a class="link">
+            Возраст
+          </a>
+          <ul>
+            <li>
+              <input
+                id="ch5"
+                type="checkbox"
+                class="checkbox"
+              >
+              <label for="ch5">
+                Вариант 1
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="select">
+          <a class="link">
+            Услуги
+          </a>
+          <ul>
+            <li>
+              <input
+                id="ch7"
+                type="checkbox"
+                class="checkbox"
+              >
+              <label for="ch7">
+                фото
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="select">
+          <a class="link">
+            Язык
+          </a>
+          <ul>
+            <li>
+              <input
+                id="ch12"
+                type="checkbox"
+                class="checkbox"
+              >
+              <label for="ch12">
+                русский
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <button>
+          Подобрать девушку!
+        </button>
+      </div>
+
+      <div class="index-catalog flex">
+        <girl-card
+          v-for="(item, i) in models"
+          :key="i"
+          :item="item"
+        />
+
+        <div class="bottom-button">
+          <button>
+            Показать еще
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapState, mapMutations } from 'vuex'
+
+import GirlCard from '@/components/page-parts/index/GirlCard'
+
+export default {
+  name: 'PageIndex',
+  components: {
+    GirlCard
+  },
+  async asyncData ({ store, route }) {
+    const response = await store.dispatch('models/getModels')
+    return { response }
+  },
+  computed: {
+    ...mapState('models', ['models'])
+  },
+  beforeDestroy () {
+    this.RESET_MODELS()
+  },
+  methods: {
+    ...mapMutations('models', ['RESET_MODELS'])
+  }
+}
+</script>

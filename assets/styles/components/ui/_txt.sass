@@ -1,0 +1,15 @@
+.txt
+  width: 100%
+  position: relative
+  z-index: 10
+  &__textarea
+    width: 100%
+    background: none
+    border: none
+    transition: all .3s
+    resize: vertical
+
+  &.error
+    .txt
+      &__textarea
+        border: 1px solid red!important
