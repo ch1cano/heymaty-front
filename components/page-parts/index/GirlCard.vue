@@ -20,12 +20,12 @@
     </div>
 
     <div class="flex buttons">
-      <button @click.prevent="goTo(localePath(`/profile/${getLink(item)}`))">
+      <!-- <button @click.prevent="goTo(localePath(`/profile/${getLink(item)}`))">
         {{ $t("girlCard.goToProfileButtonText") }}
       </button>
       <button
         @click.prevent="goToIfAuth(localePath(`/dialoges?id=${item._id}`))"
-      />
+      /> -->
     </div>
   </div>
 </template>

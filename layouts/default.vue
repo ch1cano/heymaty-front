@@ -6,7 +6,6 @@
     
     <nuxt/>
     <!-- </transition> -->
-    <the-before-footer v-if="$route.name && /^index/g.test($route.name)" />
     <the-footer />
     <modals-container></modals-container>
     <transition name="fade" mode="out-in">
@@ -37,14 +36,12 @@ import { mapState, mapActions, mapMutations } from "vuex";
 
 import TheHeader from "@/components/layout/TheHeader";
 import TheFooter from "@/components/layout/TheFooter";
-import TheBeforeFooter from "@/components/layout/TheBeforeFooter";
 
 export default {
   name: "DefaultLayout",
   components: {
     TheHeader,
     TheFooter,
-    TheBeforeFooter,
     SignIn: () => import("@/components/modals/SignIn"),
     SignUp: () => import("@/components/modals/SignUp"),
     ForgotPassword: () => import("@/components/modals/ForgotPassword"),

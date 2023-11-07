@@ -1,8 +1,8 @@
 <template>
 <div>
-  <div class="index-filter flex">
+  <!-- <div class="index-filter flex">
     <SearchSelector />
-  </div>
+  </div> -->
   <div class="index-filter flex">
     <CountriesSelector />
     <CitiesSelector />
@@ -15,7 +15,6 @@
 </div>
 </template>
 <script>
-import { mapState, mapActions, mapMutations } from "vuex";
 import CountriesSelector from "./CountriesSelector";
 import SearchSelector from "./SearchSelector";
 import CitiesSelector from "./CitiesSelector";

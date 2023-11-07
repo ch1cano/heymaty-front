@@ -134,6 +134,8 @@
 				<div class="likes_comts">
 					<div class="likes">
 						<svg
+							@click="decrementLikes"
+							v-if="isLiked"
 							xmlns="http://www.w3.org/2000/svg"
 							width="24"
 							height="24"
@@ -145,7 +147,30 @@
 								fill="#FF005C"
 							/>
 						</svg>
-						<p>24</p>
+
+						<svg
+							@click="incrementLikes"
+							v-else
+							class="empty"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g id="Group 2">
+								<path
+									id="Union"
+									d="M21 8.25C21 5.76472 18.9013 3.75 16.3125 3.75C14.3769 3.75 12.7153 4.87628 12 6.48342C11.2847 4.87628 9.62312 3.75 7.6875 3.75C5.09867 3.75 3 5.76472 3 8.25C3 15.4706 12 20.25 12 20.25C12 20.25 21 15.4706 21 8.25Z"
+									stroke="#A8B2C5"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</g>
+						</svg>
+
+						<p>{{ likeCount }}</p>
 					</div>
 					<div class="comts" @click="toggleCommentVisibility">
 						<svg
@@ -163,30 +188,10 @@
 								stroke-linejoin="round"
 							/>
 						</svg>
-						<p>16</p>
+						<p>{{ commensCount }}</p>
 					</div>
 				</div>
 			</div>
-			<!-- <div class="index-catalog flex fav">
-        <template v-if="favorites.length > 0" class="index-catalog__list">
-          <girl-card
-            v-for="(item, i) in favorites"
-            :key="i"
-            :item="item.modelId"
-          />
-        </template>
-        <template v-else>
-          <div class="item">
-            <p>{{ $t("favourites.noFavourites") }}</p>
-          </div>
-        </template>
-
-        <div class="bottom-button">
-          <button @click.prevent="goTo(localePath('/'))">
-            {{ $t("favourites.goToMainPage") }}
-          </button>
-        </div>
-      </div> -->
 			<div class="comment" v-if="isCommentVisible">
 				<!-- Отображение комментариев -->
 				<div v-for="comment in comments" :key="comment.id">
@@ -240,9 +245,57 @@
 					</div>
 				</form>
 			</div>
+      <template>
+		<NuxtLink to="/SkeletFavorites">Skelet</NuxtLink>
+		<NuxtLink to="/NoMatys">NoMatys</NuxtLink>
+      </template>
+
+			<!-- <div class="index-catalog flex fav">
+        <template v-if="favorites.length > 0" class="index-catalog__list">
+          <girl-card
+            v-for="(item, i) in favorites"
+            :key="i"
+            :item="item.modelId"
+          />
+        </template>
+        <template v-else>
+          <div class="item">
+            <p>{{ $t("favourites.noFavourites") }}</p>
+          </div>
+        </template>
+
+        <div class="bottom-button">
+          <button @click.prevent="goTo(localePath('/'))">
+            {{ $t("favourites.goToMainPage") }}
+          </button>
+        </div>
+      </div> -->
 		</div>
 	</div>
 </template>
+
+<!-- <template>
+  <div>
+    <content-loader :width="300" :height="400" :speed="2" :view-box="'0 0 300 400'" primary-color="#f3f3f3" secondary-color="#ecebeb">
+      <rect x="0" y="0" rx="3" ry="3" :width="300" :height="200" />
+      <rect x="0" y="210" rx="3" ry="3" :width="100" :height="20" />
+    </content-loader>
+  </div>
+</template>
+
+<script>
+import { ContentLoader } from 'vue-content-loader';
+
+export default {
+  components: {
+    ContentLoader,
+  },
+};
+</script>
+
+<style scoped>
+/* Дополнительные стили по вашему усмотрению */
+</style> -->
 
 <script>
 import { mapState } from "vuex";
@@ -261,18 +314,21 @@ export default {
 	computed: {
 		...mapState("favorites", ["favorites"]),
 	},
-	methods: {},
+
 	data() {
 		return {
 			isCommentVisible: false,
 			comments: [],
 			newComment: "",
 			currentColor: "",
-			comments: [],
-			newComment: "",
+			isLiked: false,
+			likeCount: 0,
 		};
 	},
 	methods: {
+		toggleLike() {
+			this.isLiked = !this.isLiked;
+		},
 		toggleCommentVisibility() {
 			this.isCommentVisible = !this.isCommentVisible; //
 		},
@@ -283,6 +339,14 @@ export default {
 		addComment() {
 			this.comments.push({ id: Date.now(), text: this.newComment });
 			this.newComment = "";
+		},
+		incrementLikes() {
+			this.isLiked = !this.isLiked;
+			this.likeCount += 1;
+		},
+		decrementLikes() {
+			this.isLiked = !this.isLiked;
+			this.likeCount -= 1;
 		},
 	},
 };

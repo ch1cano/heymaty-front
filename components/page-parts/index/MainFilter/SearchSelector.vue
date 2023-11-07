@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <input
-      class="v-input"
+      class="v-input styled-search"
       v-model="name"
       @input="searchModels"
       @keyup="checkIsEnterPress"

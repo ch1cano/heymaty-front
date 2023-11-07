@@ -1,20 +1,20 @@
 <template>
   <div>
     <section class="index-first-block">
-      <div class="wrap">
+      <!-- <div class="wrap">
         <div class="text">
           <span> {{ $t("index.title") }} </span>
           <p>{{ $t("index.description") }}</p>
         </div>
-      </div>
+      </div> -->
     </section>
 
-    <div class="wrap">
+    <div class="container-wrap">
       <client-only>
         <MainFilter />
       </client-only>
 
-      <section class="index-catalog flex">
+      <section class="index-catalog smart-flex">
         <p v-if="models.length === 0" class="no-models">
           {{ $t("index.modelNotFound") }}
         </p>

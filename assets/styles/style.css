@@ -639,7 +639,9 @@ main {
 	line-height: 24px;
 	letter-spacing: -0.5px;
 }
-
+.like.liked {
+	fill: #ff005c;
+}
 .nav_settings {
 	display: flex;
 	align-items: center;
@@ -784,6 +786,9 @@ main {
 	width: 650px;
 	background: var(--grayscale-light-blue, #e9edf5);
 	box-shadow: #e9edf5 0px 1px 3px -1px;
+}
+.input_comtsw {
+	color: red;
 }
 
 .comment {
