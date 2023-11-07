@@ -245,9 +245,57 @@
 					</div>
 				</form>
 			</div>
+      <template>
+		<NuxtLink to="/SkeletFavorites">Skelet</NuxtLink>
+		<NuxtLink to="/NoMatys">NoMatys</NuxtLink>
+      </template>
+
+			<!-- <div class="index-catalog flex fav">
+        <template v-if="favorites.length > 0" class="index-catalog__list">
+          <girl-card
+            v-for="(item, i) in favorites"
+            :key="i"
+            :item="item.modelId"
+          />
+        </template>
+        <template v-else>
+          <div class="item">
+            <p>{{ $t("favourites.noFavourites") }}</p>
+          </div>
+        </template>
+
+        <div class="bottom-button">
+          <button @click.prevent="goTo(localePath('/'))">
+            {{ $t("favourites.goToMainPage") }}
+          </button>
+        </div>
+      </div> -->
 		</div>
 	</div>
 </template>
+
+<!-- <template>
+  <div>
+    <content-loader :width="300" :height="400" :speed="2" :view-box="'0 0 300 400'" primary-color="#f3f3f3" secondary-color="#ecebeb">
+      <rect x="0" y="0" rx="3" ry="3" :width="300" :height="200" />
+      <rect x="0" y="210" rx="3" ry="3" :width="100" :height="20" />
+    </content-loader>
+  </div>
+</template>
+
+<script>
+import { ContentLoader } from 'vue-content-loader';
+
+export default {
+  components: {
+    ContentLoader,
+  },
+};
+</script>
+
+<style scoped>
+/* Дополнительные стили по вашему усмотрению */
+</style> -->
 
 <script>
 import { mapState } from "vuex";

@@ -1,9 +1,14 @@
 <template>
   <header :class="{ inner: $route.path === '/settings' }" class="header">
     <div class="wrap flex">
+      <div class="header-wrap flex">
+        <div>
+          <SearchSelector />
+        </div>
       <n-link :to="redirectPath">
         <img src="@/assets/img/logo-heymaty.svg" />
       </n-link>
+
 
       <ul ref="mobileMenu" :class="{ opened: isMenu }" :style="isMenu ? `overflow:unset` : `overflow:hidden`">
         <!-- <li>
@@ -62,6 +67,7 @@
       </div>
       <a @click.prevent="toggleMobile()" :class="{ active: isMenu }" class="menu-button" />
     </div>
+    </div>
   </header>
 </template>
 
@@ -69,6 +75,8 @@
 import { mapGetters, mapMutations, mapState, mapActions } from "vuex";
 import LangSwitch from "./LangSwitch.vue";
 import SoundSwitch from "./SoundSwitch.vue";
+import SearchSelector from "../page-parts/index/MainFilter/SearchSelector.vue";
+
 
 export default {
   name: "TheHeader",
@@ -85,6 +93,7 @@ export default {
   components: {
     LangSwitch,
     SoundSwitch,
+    SearchSelector
   },
   watch: {
     $route(to, from) {

@@ -1,0 +1,21 @@
+.container-wrap {
+    max-width: 1116px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top: 250px;
+}
+
+.styled-search {
+    background: var(--grayscale-light-blue, #E9EDF5);
+    max-width: 1116px;
+}
+
+.header-wrap {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
