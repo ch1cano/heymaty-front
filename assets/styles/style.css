@@ -787,6 +787,9 @@ main {
 	background: var(--grayscale-light-blue, #e9edf5);
 	box-shadow: #e9edf5 0px 1px 3px -1px;
 }
+.input_comtsw {
+	color: red;
+}
 
 .comment {
 	display: flex;

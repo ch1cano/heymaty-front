@@ -188,30 +188,10 @@
 								stroke-linejoin="round"
 							/>
 						</svg>
-						<p>16</p>
+						<p>{{ commensCount }}</p>
 					</div>
 				</div>
 			</div>
-			<!-- <div class="index-catalog flex fav">
-        <template v-if="favorites.length > 0" class="index-catalog__list">
-          <girl-card
-            v-for="(item, i) in favorites"
-            :key="i"
-            :item="item.modelId"
-          />
-        </template>
-        <template v-else>
-          <div class="item">
-            <p>{{ $t("favourites.noFavourites") }}</p>
-          </div>
-        </template>
-
-        <div class="bottom-button">
-          <button @click.prevent="goTo(localePath('/'))">
-            {{ $t("favourites.goToMainPage") }}
-          </button>
-        </div>
-      </div> -->
 			<div class="comment" v-if="isCommentVisible">
 				<!-- Отображение комментариев -->
 				<div v-for="comment in comments" :key="comment.id">
