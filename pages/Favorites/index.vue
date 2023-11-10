@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<div class="all_wrap">
 		<!-- <div class="page-top-name"> -->
 		<!-- <div class="wrap">
         <h1>{{ $t("favourites.title") }}</h1>
@@ -246,8 +247,11 @@
 				</form>
 			</div>
       <template>
-		<NuxtLink to="/SkeletFavorites">Skelet</NuxtLink>
-		<NuxtLink to="/NoMatys">NoMatys</NuxtLink>
+		<div class="links_box">
+			<NuxtLink to="/Skelet">Skelet</NuxtLink>
+			<NuxtLink to="/NoMatys">NoMatys</NuxtLink>
+			<NuxtLink to="/NoPosts">NoPosts</NuxtLink>
+		</div>
       </template>
 
 			<!-- <div class="index-catalog flex fav">
@@ -271,7 +275,16 @@
         </div>
       </div> -->
 		</div>
+		<div class="wrap_right_block">
+			<p>Suggestions</p>
+			<div class="card_box"></div>
+			<div class="card_box"></div>
+			<div class="card_box"></div>
+			<div class="card_box"></div>
+			<div class="card_box"></div>
+		</div>
 	</div>
+</div>
 </template>
 
 <!-- <template>
@@ -351,3 +364,33 @@ export default {
 	},
 };
 </script>
+
+<style>
+	.all_wrap {
+		display: flex;
+		justify-content: center;
+	}
+	.wrap_right_block {
+		margin-top: 180px;
+		margin-left: 30px;
+	}
+	.wrap_right_block p {
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 24px; /* 133.333% */
+		letter-spacing: -0.5px;
+		margin-bottom: 24px;
+	}
+	.card_box {
+		width: 349px;
+		height: 172px;
+		background: var(--grayscale-light-blue, #E9EDF5);
+		border-radius: 20px;
+		margin-bottom: 8px;
+	}
+	.links_box {
+		display: flex;
+		gap: 15px;
+	}
+</style>

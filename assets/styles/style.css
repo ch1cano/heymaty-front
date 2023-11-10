@@ -354,7 +354,6 @@ main {
 	display: block;
 }
 .wrap {
-	margin: 0 auto;
 	width: 750px;
 }
 .wrap.small {
@@ -623,7 +622,7 @@ main {
 }
 
 .nav_favourites {
-	margin-top: 55px;
+	margin-top: 105px;
 	display: flex;
 	gap: 16px;
 	justify-content: space-between;

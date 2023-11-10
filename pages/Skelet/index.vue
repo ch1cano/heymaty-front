@@ -1,10 +1,16 @@
 <template>
-	<div class="wrapper_1">
-		<div class="wrap_1">
-			<nav class="nav_favourites_1">
+	<div>
+		<div class="all_wrap">
+		<!-- <div class="page-top-name"> -->
+		<!-- <div class="wrap">
+        <h1>{{ $t("favourites.title") }}</h1>
+      </div> -->
+		<!-- </div> -->
+		<div class="wrap">
+			<nav class="nav_favourites">
 				<div>
 					<button
-						class="nav_btn_1"
+						class="nav_btn"
 						:style="{
 							backgroundColor: currentColor === 'All' ? '#2554F3' : '',
 							color: currentColor === 'All' ? 'white' : '',
@@ -14,7 +20,7 @@
 						<p>All</p>
 					</button>
 					<button
-						class="nav_btn_1"
+						class="nav_btn"
 						:style="{
 							backgroundColor: currentColor === 'Subscribed' ? '#2554F3' : '',
 							color: currentColor === 'Subscribed' ? 'white' : '',
@@ -24,7 +30,7 @@
 						<p>Subscribed</p>
 					</button>
 					<button
-						class="nav_btn_1"
+						class="nav_btn"
 						:style="{
 							backgroundColor: currentColor === 'For you' ? '#2554F3' : '',
 							color: currentColor === 'For you' ? 'white' : '',
@@ -34,7 +40,7 @@
 						<p>For you</p>
 					</button>
 				</div>
-				<div class="nav_settings_1">
+				<div class="nav_settings">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="24"
@@ -52,7 +58,7 @@
 					</svg>
 				</div>
 			</nav>
-			<div class="fu_box_1">
+			<div class="fu_box">
 				<p>Made for you</p>
 			</div>
 			<div class="post_ganeral_wrap_1">
@@ -110,28 +116,197 @@
 							</div>
 						</div>
 				</div>
+			<div class="comment" v-if="isCommentVisible">
+				<!-- Отображение комментариев -->
+				<div v-for="comment in comments" :key="comment.id">
+					{{ comment.text }}
+				</div>
+				<!-- Форма для отправки комментария -->
+				<form class="form_comts" @submit.prevent="addComment">
+					<div>
+						<img class="comts_ava" src="../../assets/img/avatar3.png" />
+					</div>
+					<div class="wrapper_form">
+						<svg
+							class="skobka"
+							xmlns="http://www.w3.org/2000/svg"
+							width="50"
+							height="50"
+							viewBox="0 0 24 24"
+							fill="none"
+						>
+							<path
+								d="M18.375 12.739L10.682 20.432C8.92462 22.1893 6.07538 22.1893 4.31802 20.432C2.56066 18.6746 2.56066 15.8254 4.31802 14.068L15.2573 3.12868C16.4289 1.95711 18.3283 1.95711 19.4999 3.12868C20.6715 4.30025 20.6715 6.19975 19.4999 7.37132L8.55158 18.3197M8.56066 18.3107C8.55764 18.3137 8.55462 18.3167 8.55158 18.3197M14.2498 8.37865L6.43934 16.1893C5.85355 16.7751 5.85355 17.7249 6.43934 18.3107C7.02211 18.8934 7.9651 18.8964 8.55158 18.3197"
+								stroke="#5E48C9"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+
+						<input
+							class="input_comts"
+							v-model="newComment"
+							placeholder="Enter message"
+						/>
+						<button class="send_btn" type="submit">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+							>
+								<path
+									d="M5.99996 12L3.26904 3.12451C9.88417 5.04617 16.0278 8.07601 21.4857 11.9997C16.0279 15.9235 9.88425 18.9535 3.26913 20.8752L5.99996 12ZM5.99996 12L13.5002 12"
+									stroke="white"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</button>
+					</div>
+				</form>
 			</div>
-			<div class="suggestions_1">
-			 	<div class="card_1">
+            
+			<!-- <div class="index-catalog flex fav">
+        <template v-if="favorites.length > 0" class="index-catalog__list">
+          <girl-card
+            v-for="(item, i) in favorites"
+            :key="i"
+            :item="item.modelId"
+          />
+        </template>
+        <template v-else>
+          <div class="item">
+            <p>{{ $t("favourites.noFavourites") }}</p>
+          </div>
+        </template>
 
-				</div>
-				<div class="card_1">
-
-				</div>
-				<div class="card_1">
-
-				</div>
-				<div class="card_1">
-
-				</div>
-			</div>
+        <div class="bottom-button">
+          <button @click.prevent="goTo(localePath('/'))">
+            {{ $t("favourites.goToMainPage") }}
+          </button>
+        </div>
+      </div> -->
 		</div>
-		</template>
-<script setup>
+		<div class="wrap_right_block">
+			<p>Suggestions</p>
+			<div class="card_box"></div>
+			<div class="card_box"></div>
+			<div class="card_box"></div>
+			<div class="card_box"></div>
+			<div class="card_box"></div>
+		</div>
+	</div>
+</div>
+</template>
 
+<!-- <template>
+  <div>
+    <content-loader :width="300" :height="400" :speed="2" :view-box="'0 0 300 400'" primary-color="#f3f3f3" secondary-color="#ecebeb">
+      <rect x="0" y="0" rx="3" ry="3" :width="300" :height="200" />
+      <rect x="0" y="210" rx="3" ry="3" :width="100" :height="20" />
+    </content-loader>
+  </div>
+</template>
+
+<script>
+import { ContentLoader } from 'vue-content-loader';
+
+export default {
+  components: {
+    ContentLoader,
+  },
+};
+</script>
+
+<style scoped>
+/* Дополнительные стили по вашему усмотрению */
+</style> -->
+
+<script>
+import { mapState } from "vuex";
+
+import GirlCard from "@/components/page-parts/index/GirlCard";
+
+export default {
+	name: "PageFavorites",
+	components: {
+		GirlCard,
+	},
+	async asyncData({ store, route }) {
+		const response = await store.dispatch("favorites/getMyFavorites");
+		return response;
+	},
+	computed: {
+		...mapState("favorites", ["favorites"]),
+	},
+
+	data() {
+		return {
+			isCommentVisible: false,
+			comments: [],
+			newComment: "",
+			currentColor: "",
+			isLiked: false,
+			likeCount: 0,
+		};
+	},
+	methods: {
+		toggleLike() {
+			this.isLiked = !this.isLiked;
+		},
+		toggleCommentVisibility() {
+			this.isCommentVisible = !this.isCommentVisible; //
+		},
+		changeColor(color) {
+			this.currentColor = color;
+		},
+
+		addComment() {
+			this.comments.push({ id: Date.now(), text: this.newComment });
+			this.newComment = "";
+		},
+		incrementLikes() {
+			this.isLiked = !this.isLiked;
+			this.likeCount += 1;
+		},
+		decrementLikes() {
+			this.isLiked = !this.isLiked;
+			this.likeCount -= 1;
+		},
+	},
+};
 </script>
 
 <style>
+	.all_wrap {
+		display: flex;
+		justify-content: center;
+	}
+	.wrap_right_block {
+		margin-top: 180px;
+	}
+	.wrap_right_block p {
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 24px; /* 133.333% */
+		letter-spacing: -0.5px;
+		margin-bottom: 24px;
+	}
+	.wrap_right_block {
+		margin-left: 30px;
+	}
+	.card_box {
+		width: 349px;
+		height: 172px;
+		background: var(--grayscale-light-blue, #E9EDF5);
+		border-radius: 20px;
+		margin-bottom: 8px;
+	}
 	.wrapper_1 {
 		display: flex;
 	}
@@ -153,7 +328,7 @@
 		flex-direction: column;
 	}
 	.nav_favourites_1 {
-		margin-top: 55px;
+		margin-top: 105px;
 		display: flex;
 		gap: 16px;
 		justify-content: space-between;
@@ -215,7 +390,7 @@
 		margin-bottom: -100px;
 	}
 	.post_ganeral_wrap_1 {
-		margin-top: 100px
+		margin-top: 20px
 	}
 	.avatar_ganeral_1 {
 		width: 52px;
