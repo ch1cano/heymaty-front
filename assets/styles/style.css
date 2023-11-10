@@ -775,14 +775,14 @@ main {
 
 .form_comts {
 	display: flex;
-	align-items: start;
+	align-items: flex-start;
 
 	margin-top: 10px;
 }
 
 .input_comts {
 	display: flex;
-	align-items: start;
+	align-items: flex-start;
 	width: 650px;
 	background: var(--grayscale-light-blue, #e9edf5);
 	box-shadow: #e9edf5 0px 1px 3px -1px;

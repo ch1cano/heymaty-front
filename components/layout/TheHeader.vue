@@ -165,7 +165,7 @@ export default {
 	watch: {
 		$route(to, from) {
 			this.isMenu = false;
-			this.$refs.mobileMenu.style = "";
+			// this.$refs.mobileMenu.style = "";
 		},
 		// async latestMessage() {
 		//   if (this.latestMessage) {
