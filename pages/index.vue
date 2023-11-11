@@ -14,7 +14,7 @@
         <MainFilter />
       </client-only>
 
-      <section class="index-catalog smart-flex">
+      <section class="index-catalog flex">
         <p v-if="models.length === 0" class="no-models">
           {{ $t("index.modelNotFound") }}
         </p>
