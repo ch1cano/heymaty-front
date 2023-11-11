@@ -1,11 +1,11 @@
 <template>
-	<div>
+	<div class="wrap_ganeral">
 		<!-- <div class="page-top-name"> -->
 		<!-- <div class="wrap">
         <h1>{{ $t("favourites.title") }}</h1>
       </div> -->
 		<!-- </div> -->
-		<div class="wrap">
+		<div class="wrap_1">
 			<nav class="nav_favourites">
 				<div>
 					<button
@@ -271,6 +271,23 @@
         </div>
       </div> -->
 		</div>
+		<div class="suggestions_1">
+			<div>
+				<p>Suggestions</p>
+			</div>
+			 	<div class="card_1">
+
+				</div>
+				<div class="card_1">
+
+				</div>
+				<div class="card_1">
+
+				</div>
+				<div class="card_1">
+
+				</div>
+			</div>
 	</div>
 </template>
 
@@ -351,3 +368,38 @@ export default {
 	},
 };
 </script>
+
+<style>
+	.wrap_ganeral {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: -70px;
+	}
+	.suggestions_1 {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-left: 30px;
+		margin-top: 20px;
+		height: 80dvh;
+	}
+	.suggestions_1 p {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 24px; /* 133.333% */
+		letter-spacing: -0.5px;
+		width: 343px;
+	}
+	.card_1 {
+		width: 343px;
+		height: 172px;
+		background-color: #e9edf5;
+		border-radius: 20px;
+		margin-top: 8px;
+	}
+</style>

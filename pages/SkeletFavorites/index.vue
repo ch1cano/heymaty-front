@@ -112,6 +112,9 @@
 				</div>
 			</div>
 			<div class="suggestions_1">
+				<div>
+					<p>Suggestions</p>
+				</div>
 			 	<div class="card_1">
 
 				</div>
@@ -134,6 +137,9 @@
 <style>
 	.wrapper_1 {
 		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: -50px;
 	}
 	.suggestions_1 {
 		display: flex;
@@ -141,13 +147,15 @@
 		width: 343px;
 		height: auto;
 	}
+	.suggestions_1 p {
+		margin-top: 15px;
+	}
 	.card_1 {
 		width: 343px;
 		height: 172px;
 		background-color: #e9edf5;
 	}
 	.wrap_1 {
-		margin: 0 auto;
 		max-width: 1148px;
 		display: flex;
 		flex-direction: column;
@@ -201,7 +209,7 @@
 		margin-left: 7px;
 	}
 	.fu_box_1 p {
-		font-size: 18px;
+		font-size: 20px;
 		font-style: normal;
 		font-weight: 500;
 		line-height: 24px; 
