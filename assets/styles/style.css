@@ -629,6 +629,10 @@ main {
 	justify-content: space-between;
 }
 
+.styled_nav_favorites {
+	margin-bottom: 40px;
+}
+
 .fu_box {
 	display: flex;
 	align-items: center;
