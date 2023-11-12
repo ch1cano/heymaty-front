@@ -474,7 +474,7 @@ main {
 	width: 60px;
 	height: 60px;
 	display: flex;
-	margin-right: 40px;
+	margin-right: 5px;
 }
 .header .links a:last-child {
 	margin-right: 0;
@@ -487,12 +487,22 @@ main {
 }
 
 .header .links a:nth-child(2) {
+	background: url("../../assets/svg/Group 1.svg") no-repeat;
+	background-size: 32px;
+	background-position: center;
+}
+.header .links a:nth-child(3) {
+	background: url("../../assets/svg/Group 2.svg") no-repeat;
+	background-size: 32px;
+	background-position: center;
+}
+.header .links a:nth-child(4) {
 	background: url("../../assets/img/avatar.png") no-repeat;
 	background-size: 32px;
 	background-position: center;
 }
 .header .header-profile {
-	width: 120px;
+	width: 280px;
 	position: absolute;
 	top: 100%;
 	right: 0;
@@ -522,8 +532,9 @@ main {
 	font-size: 16px;
 	line-height: 24px;
 	font-weight: 500;
+	gap: 7px;
 	color: #2a3041;
-	border-bottom: 1px solid rgba(199, 202, 247, 0.4);
+	/* border-bottom: 1px solid rgba(199, 202, 247, 0.4); */
 }
 .header .menu-button {
 	width: 46px;
