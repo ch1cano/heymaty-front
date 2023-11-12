@@ -1,12 +1,13 @@
 <template>
-	<div class="wrap_ganeral">
-		<!-- <div class="page-top-name"> -->
-		<!-- <div class="wrap">
-        <h1>{{ $t("favourites.title") }}</h1>
-      </div> -->
-		<!-- </div> -->
-		<div class="wrap_1">
-			<nav class="nav_favourites">
+    <div>
+      <!-- Используйте компонент лоадера и передайте значение isLoading -->
+      <Loader :isLoading="isLoading" />
+  
+      <div v-if="!isLoading">
+        <template>
+		<div class="wrap_ganeral">
+			<div class="wrap_1">
+				<nav class="nav_favourites">
 				<div>
 					<button
 						class="nav_btn"
@@ -287,119 +288,127 @@
 				<div class="card_1">
 
 				</div>
-			</div>
+		</div>
 	</div>
 </template>
+        {{ data }}
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  import Loader from '../../components/LoaderFavorites/Loader.vue'; // Импортируйте компонент лоадера
+  import { mapState } from "vuex";
+  import GirlCard from "@/components/page-parts/index/GirlCard";
 
-<!-- <template>
-  <div>
-    <content-loader :width="300" :height="400" :speed="2" :view-box="'0 0 300 400'" primary-color="#f3f3f3" secondary-color="#ecebeb">
-      <rect x="0" y="0" rx="3" ry="3" :width="300" :height="200" />
-      <rect x="0" y="210" rx="3" ry="3" :width="100" :height="20" />
-    </content-loader>
-  </div>
-</template>
-
-<script>
-import { ContentLoader } from 'vue-content-loader';
-
-export default {
-  components: {
-    ContentLoader,
-  },
-};
-</script>
-
-<style scoped>
-/* Дополнительные стили по вашему усмотрению */
-</style> -->
-
-<script>
-import { mapState } from "vuex";
-
-import GirlCard from "@/components/page-parts/index/GirlCard";
-
-export default {
-	name: "PageFavorites",
-	components: {
-		GirlCard,
-	},
-	async asyncData({ store, route }) {
-		const response = await store.dispatch("favorites/getMyFavorites");
-		return response;
-	},
-	computed: {
-		...mapState("favorites", ["favorites"]),
-	},
-
-	data() {
-		return {
-			isCommentVisible: false,
-			comments: [],
-			newComment: "",
-			currentColor: "",
-			isLiked: false,
-			likeCount: 0,
-		};
-	},
-	methods: {
-		toggleLike() {
-			this.isLiked = !this.isLiked;
-		},
-		toggleCommentVisibility() {
-			this.isCommentVisible = !this.isCommentVisible; //
-		},
-		changeColor(color) {
-			this.currentColor = color;
-		},
-
-		addComment() {
-			this.comments.push({ id: Date.now(), text: this.newComment });
-			this.newComment = "";
-		},
-		incrementLikes() {
-			this.isLiked = !this.isLiked;
-			this.likeCount += 1;
-		},
-		decrementLikes() {
-			this.isLiked = !this.isLiked;
-			this.likeCount -= 1;
-		},
-	},
-};
-</script>
-
-<style>
-	.wrap_ganeral {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-top: -70px;
-	}
-	.suggestions_1 {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-left: 30px;
-		margin-top: 20px;
-		height: 80dvh;
-	}
-	.suggestions_1 p {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		font-size: 20px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 24px; /* 133.333% */
-		letter-spacing: -0.5px;
-		width: 343px;
-	}
-	.card_1 {
-		width: 343px;
-		height: 172px;
-		background-color: #e9edf5;
-		border-radius: 20px;
-		margin-top: 8px;
-	}
-</style>
+  export default {
+    data() {
+      return {
+        isLoading: true, // Изначально устанавливаем в true
+        data: null,
+      };
+    },
+    mounted() {
+      // Загрузка данных (например, с помощью Axios)
+      this.loadData();
+    },
+    methods: {
+      loadData() {
+        // Загрузка данных
+        axios.get('https://example.com/api/data')
+          .then(response => {
+            this.data = response.data;
+            this.isLoading = false; // После получения данных устанавливаем isLoading в false
+          })
+          .catch(error => {
+            console.error(error);
+            this.isLoading = false; // В случае ошибки также устанавливаем isLoading в false
+          });
+      },
+    },
+    components: {
+      Loader, // Регистрируйте компонент лоадера
+    },
+    name: "PageFavorites",
+    components: {
+      GirlCard,
+    },
+    async asyncData({ store, route }) {
+      const response = await store.dispatch("favorites/getMyFavorites");
+      return response;
+    },
+    computed: {
+      ...mapState("favorites", ["favorites"]),
+    },
+  
+    data() {
+      return {
+        isCommentVisible: false,
+        comments: [],
+        newComment: "",
+        currentColor: "",
+        isLiked: false,
+        likeCount: 0,
+      };
+    },
+    methods: {
+      toggleLike() {
+        this.isLiked = !this.isLiked;
+      },
+      toggleCommentVisibility() {
+        this.isCommentVisible = !this.isCommentVisible; //
+      },
+      changeColor(color) {
+        this.currentColor = color;
+      },
+  
+      addComment() {
+        this.comments.push({ id: Date.now(), text: this.newComment });
+        this.newComment = "";
+      },
+      incrementLikes() {
+        this.isLiked = !this.isLiked;
+        this.likeCount += 1;
+      },
+      decrementLikes() {
+        this.isLiked = !this.isLiked;
+        this.likeCount -= 1;
+      },
+    },
+  };
+  </script>
+  
+  <style>
+    .wrap_ganeral {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -70px;
+    }
+    .suggestions_1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 30px;
+      margin-top: 20px;
+      height: 80dvh;
+    }
+    .suggestions_1 p {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px; /* 133.333% */
+      letter-spacing: -0.5px;
+      width: 343px;
+    }
+    .card_1 {
+      width: 343px;
+      height: 172px;
+      background-color: #e9edf5;
+      border-radius: 20px;
+      margin-top: 8px;
+    }
+  </style>
