@@ -356,6 +356,7 @@ main {
 .wrap {
 	margin: 0 auto;
 	width: 750px;
+	align-items: center;
 }
 .wrap.small {
 	width: 720px;
@@ -394,6 +395,8 @@ main {
 	width: 100%;
 	z-index: 1000;
 	background-color: #fff;
+	display: flex;
+	align-items: center;
 }
 .header.inner {
 	box-shadow: 0px 4px 35px rgba(191, 128, 242, 0.13);
@@ -466,30 +469,27 @@ main {
 	color: #5171e4;
 	font-weight: 500;
 }
-.header .buttons button:hover {
-	color: #fff;
-	background: #5171e4;
-}
-.header .links {
-	margin: -3px 0;
-}
+
 .header .links a {
-	display: inline-block;
 	width: 60px;
 	height: 60px;
+	display: flex;
 	margin-right: 40px;
-	position: relative;
 }
 .header .links a:last-child {
 	margin-right: 0;
 }
 
 .header .links a:nth-child(1) {
-	background: url("../../assets/img/search.svg");
+	background: url("../../assets/img/bicoin.svg") no-repeat;
+	background-size: 30px;
+	background-position: center;
 }
 
 .header .links a:nth-child(2) {
-	background: url("../../assets/img/header-icon3.svg");
+	background: url("../../assets/img/avatar.png") no-repeat;
+	background-size: 32px;
+	background-position: center;
 }
 .header .header-profile {
 	width: 120px;
@@ -534,10 +534,9 @@ main {
 .header .menu-button.active {
 	background: url("../../assets/img/menu-button2.svg");
 }
+
 .index-first-block {
-	background: url("../../assets/img/index-first-block.png") center / cover;
-	text-align: center;
-	padding: 65px 0 120px;
+	padding: 50px 0 50px;
 }
 .index-first-block .text {
 	color: #fff;

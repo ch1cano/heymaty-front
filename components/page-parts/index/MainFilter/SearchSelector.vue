@@ -151,7 +151,7 @@ input::placeholder {
 }
 
 .error {
-	//background-color: tomato;
+	background-color: tomato;
 }
 
 // Media queries for responsive design

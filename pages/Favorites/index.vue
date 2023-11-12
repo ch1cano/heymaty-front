@@ -188,14 +188,61 @@
 								stroke-linejoin="round"
 							/>
 						</svg>
-						<p>{{ commensCount }}</p>
+						<p></p>
 					</div>
 				</div>
 			</div>
 			<div class="comment" v-if="isCommentVisible">
 				<!-- Отображение комментариев -->
-				<div v-for="comment in comments" :key="comment.id">
-					{{ comment.text }}
+				<div class="newcom" v-for="comment in comments" :key="comment.id">
+					<div class="comcontent">
+						<img class="avatarcom" alt="#" src="../../assets/img/avatar.png" />
+						<div>
+							<p class="namecom">Jane Stark</p>
+							{{ comment.text }}
+							<p class="timecom">today at 16:03</p>
+						</div>
+					</div>
+					<div class="likes">
+						<svg
+							@click="decrementLikes1"
+							v-if="isLiked1"
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+						>
+							<path
+								d="M11.645 20.9107L11.6384 20.9072L11.6158 20.8949C11.5965 20.8844 11.5689 20.8693 11.5336 20.8496C11.4629 20.8101 11.3612 20.7524 11.233 20.6769C10.9765 20.5261 10.6132 20.3039 10.1785 20.015C9.31074 19.4381 8.15122 18.5901 6.9886 17.5063C4.68781 15.3615 2.25 12.1751 2.25 8.25C2.25 5.32194 4.7136 3 7.6875 3C9.43638 3 11.0023 3.79909 12 5.0516C12.9977 3.79909 14.5636 3 16.3125 3C19.2864 3 21.75 5.32194 21.75 8.25C21.75 12.1751 19.3122 15.3615 17.0114 17.5063C15.8488 18.5901 14.6893 19.4381 13.8215 20.015C13.3868 20.3039 13.0235 20.5261 12.767 20.6769C12.6388 20.7524 12.5371 20.8101 12.4664 20.8496C12.4311 20.8693 12.4035 20.8844 12.3842 20.8949L12.3616 20.9072L12.355 20.9107L12.3523 20.9121C12.1323 21.0289 11.8677 21.0289 11.6477 20.9121L11.645 20.9107Z"
+								fill="#FF005C"
+							/>
+						</svg>
+
+						<svg
+							@click="incrementLikes1"
+							v-else
+							class="empty"
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g id="Group 2">
+								<path
+									id="Union"
+									d="M21 8.25C21 5.76472 18.9013 3.75 16.3125 3.75C14.3769 3.75 12.7153 4.87628 12 6.48342C11.2847 4.87628 9.62312 3.75 7.6875 3.75C5.09867 3.75 3 5.76472 3 8.25C3 15.4706 12 20.25 12 20.25C12 20.25 21 15.4706 21 8.25Z"
+									stroke="#A8B2C5"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</g>
+						</svg>
+
+						<p class="likecom">{{ likeCount1 }}</p>
+					</div>
 				</div>
 				<!-- Форма для отправки комментария -->
 				<form class="form_comts" @submit.prevent="addComment">
@@ -245,10 +292,10 @@
 					</div>
 				</form>
 			</div>
-      <template>
-		<NuxtLink to="/SkeletFavorites">Skelet</NuxtLink>
-		<NuxtLink to="/NoMatys">NoMatys</NuxtLink>
-      </template>
+			<template>
+				<NuxtLink to="/SkeletFavorites">Skelet</NuxtLink>
+				<NuxtLink to="/NoMatys">NoMatys</NuxtLink>
+			</template>
 
 			<!-- <div class="index-catalog flex fav">
         <template v-if="favorites.length > 0" class="index-catalog__list">
@@ -275,19 +322,11 @@
 			<div>
 				<p>Suggestions</p>
 			</div>
-			 	<div class="card_1">
-
-				</div>
-				<div class="card_1">
-
-				</div>
-				<div class="card_1">
-
-				</div>
-				<div class="card_1">
-
-				</div>
-			</div>
+			<div class="card_1"></div>
+			<div class="card_1"></div>
+			<div class="card_1"></div>
+			<div class="card_1"></div>
+		</div>
 	</div>
 </template>
 
@@ -340,11 +379,16 @@ export default {
 			currentColor: "",
 			isLiked: false,
 			likeCount: 0,
+			likeCount1: 0,
+			isLiked1: false,
 		};
 	},
 	methods: {
 		toggleLike() {
 			this.isLiked = !this.isLiked;
+		},
+		toggleLike1() {
+			this.isLiked1 = !this.isLiked1;
 		},
 		toggleCommentVisibility() {
 			this.isCommentVisible = !this.isCommentVisible; //
@@ -361,45 +405,100 @@ export default {
 			this.isLiked = !this.isLiked;
 			this.likeCount += 1;
 		},
+		incrementLikes1() {
+			this.isLiked1 = !this.isLiked1;
+			this.likeCount1 += 1;
+		},
 		decrementLikes() {
 			this.isLiked = !this.isLiked;
 			this.likeCount -= 1;
+		},
+		decrementLikes1() {
+			this.isLiked1 = !this.isLiked1;
+			this.likeCount1 -= 1;
 		},
 	},
 };
 </script>
 
 <style>
-	.wrap_ganeral {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-top: -70px;
-	}
-	.suggestions_1 {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-left: 30px;
-		margin-top: 20px;
-		height: 80dvh;
-	}
-	.suggestions_1 p {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		font-size: 20px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 24px; /* 133.333% */
-		letter-spacing: -0.5px;
-		width: 343px;
-	}
-	.card_1 {
-		width: 343px;
-		height: 172px;
-		background-color: #e9edf5;
-		border-radius: 20px;
-		margin-top: 8px;
-	}
+.wrap_ganeral {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: -70px;
+}
+.suggestions_1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 30px;
+	margin-top: 20px;
+	height: 80dvh;
+}
+.suggestions_1 p {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px; /* 133.333% */
+	letter-spacing: -0.5px;
+	width: 343px;
+}
+.card_1 {
+	width: 343px;
+	height: 172px;
+	background-color: #e9edf5;
+	border-radius: 20px;
+	margin-top: 8px;
+}
+.comment {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	padding-top: 10px;
+}
+.newcom {
+	display: flex;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 21px; /* 131.25% */
+	letter-spacing: -0.5px;
+	padding-bottom: 10px;
+	justify-content: flex-start;
+	width: 93%;
+
+	display: flex;
+	justify-content: space-between;
+}
+.comcontent {
+	margin-left: 10px;
+	display: flex;
+	gap: 8px;
+}
+.namecom {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+.likecom {
+	font-size: 8px;
+}
+.timecom {
+	color: var(--grayscale-gray, #a8b2c5);
+	padding-top: 5px;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+}
+
+.avatarcom {
+	width: 44px;
+	height: 44px;
+}
 </style>

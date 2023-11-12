@@ -2,9 +2,9 @@
 	<header :class="{ inner: $route.path === '/settings' }" class="header">
 		<div class="wrapper">
 			<div class="wrap">
-				<div>
+				<div class="heymaty">
 					<n-link :to="redirectPath">
-						<img src="@/assets/img/logo-heymaty.svg" />
+						<img src="@/assets/svg/Vector.svg" />
 					</n-link>
 				</div>
 				<div class="leftnav">
@@ -74,6 +74,7 @@
 							{{ $t("header.login") }}
 						</button>
 					</div>
+
 					<div v-else class="links">
 						<n-link key="search" :to="localePath('/')"></n-link>
 
@@ -260,6 +261,7 @@ export default {
 .wrapper {
 	display: flex;
 	width: 100%;
+	align-items: center;
 }
 
 .wrap {
@@ -267,11 +269,17 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	padding: 0px 24px;
+	align-items: center;
+	text-align: center;
 }
-
+.heymaty {
+	align-items: center;
+	display: flex;
+}
 .leftnav {
 	display: flex;
 	gap: 10px;
+	align-items: center;
 }
 
 .clearfix:after {
@@ -280,5 +288,13 @@ export default {
 	height: 0;
 	clear: both;
 	visibility: hidden;
+}
+.buttons {
+	display: flex;
+	align-items: center;
+}
+.links {
+	align-items: center;
+	display: flex;
 }
 </style>
