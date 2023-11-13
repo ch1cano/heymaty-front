@@ -12,22 +12,22 @@
 								<div class="favorites_title">
 									<p>Made for you</p>
 								</div>
-								<div v-if="openPosts.length <= 0" class="entryPosts">
+								<!-- <div v-if="openPosts.length <= 0" class="entryPosts">
 									<p>Oh, your matys have no posts yet Keep tuning!</p>
-								</div>
-								<NoMatys v-if="favorites.length <= 0" />
-								<div v-if="openPosts.length > 0" class="post-wrapper">
-									<Post
-										v-for="item in openPosts"
-										:key="item._id"
-										:images="item.images"
-										:name="item.userId.name"
-										:description="item.description"
-										:createdAt="item.createdAt"
-										:isPublic="item.isPublic"
-										:avatar="item.userId.profile.path"
-									/>
-								</div>
+								</div> -->
+								<!-- <NoMatys v-if="favorites.length <= 0" /> -->
+								<!-- <div v-if="openPosts.length > 0" class="post-wrapper"> -->
+								<Post
+									v-for="item in items"
+									:key="item.id"
+									:images="item.images"
+									:name="item.name"
+									:description="item.description"
+									:createdAt="item.createdAt"
+									:isPublic="item.isPublic"
+									:avatar="item.path"
+								/>
+								<!-- </div> -->
 							</div>
 						</div>
 						<div class="suggestions_1">
@@ -65,10 +65,40 @@ export default {
 		Tabs,
 	},
 
+	objarr() {
+		return [
+			{
+				images: [{ id: 1 }],
+				name: "test",
+				description: "test",
+				createdAt: "test",
+				isPublic: true,
+				avatar: "",
+			},
+		];
+	},
+
 	data() {
 		return {
-			isLoading: true,
-			items: [],
+			// isLoading: true,
+			items: [
+				{
+					// :key="item._id"
+					//           :images="item.images"
+					//           :name="item.userId.name"
+					//           :description="item.description"
+					//           :createdAt="item.createdAt"
+					//           :isPublic="item.isPublic"
+					//           :avatar="item.userId.profile.path"
+					id: 1,
+					images: [{ id: 1 }],
+					name: "test",
+					description: "test",
+					createdAt: "test",
+					isPublic: true,
+					avatar: "",
+				},
+			],
 		};
 	},
 
