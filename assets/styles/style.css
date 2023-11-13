@@ -553,7 +553,7 @@ main {
 .index-first-block .text {
 	color: #fff;
 	font-size: 20px;
-	line-height: 150%;
+	/* line-height: 150%; */
 }
 .index-first-block .text span {
 	display: block;
@@ -563,15 +563,24 @@ main {
 	line-height: 110%;
 }
 .index-first-block .text p {
-	padding: 0 330px;
+	padding: 0 30px;
 }
+
+.selecttop {
+	font-size: 17px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+
 .index-filter {
-	box-shadow: 0px 4px 35px rgba(14, 96, 159, 0.13);
-	border-radius: 18px;
-	background: #fff;
+	gap: 20px;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
 	margin: -40px 0 72px;
 	padding: 28px 32px;
-	position: relative;
 }
 .index-filter .select {
 	position: relative;
@@ -581,7 +590,7 @@ main {
 	border-radius: 30px;
 	height: 50px;
 	line-height: 50px;
-	padding: 0 160px 0 20px;
+	/* padding: 0 0px 0 20px; */
 	background: rgba(234, 229, 246, 0.47) url("../../assets/img/select.svg")
 		no-repeat right 5px top 50%;
 	display: block;
@@ -599,7 +608,7 @@ main {
 	border-radius: 4px;
 	z-index: 2;
 	box-shadow: 0px 6px 24px rgba(2, 16, 66, 0.08);
-	padding: 25px 20px 10px 20px;
+	/* padding: 25px 20px 10px 20px; */
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -613,7 +622,7 @@ main {
 	cursor: pointer;
 	margin-bottom: 10px;
 	font-size: 16px;
-	color: #a3b2cc;
+	color: #e9edf5;
 	padding-left: 25px;
 	background: url("../../assets/img/checkbox.svg") no-repeat 0 5px;
 }
@@ -622,7 +631,7 @@ main {
 	background: url("../../assets/img/checkbox2.svg") no-repeat 0 5px;
 }
 .index-filter button {
-	color: #fff;
+	color: #e9edf5;
 	font-size: 18px;
 	width: 286px;
 	height: 50px;
