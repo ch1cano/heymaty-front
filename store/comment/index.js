@@ -24,7 +24,7 @@ const actions = {
   async postComment({ commit, state }, postData) {
     try {
       commit("SET_COMMENT_POSTING", true);
-      postData.postId = state.postId;
+      // postData.postId = state.postId;
       const { data } = await this.$api.post("/comments", postData);
       commit("SET_COMMENT_POSTING", false);
       commit("ADD_COMMENTS", [data.newComment]);
@@ -51,6 +51,7 @@ const actions = {
 
   //Получить все комменты на пост
   async getComments({ commit, state }) {
+    console.log("postId", state.postId);
     try {
       commit("SET_COMMENTS_LOADING", true);
       const params = {
@@ -60,6 +61,7 @@ const actions = {
       const { data } = await this.$api.get("/comments/post/" + state.postId, {
         params,
       });
+      console.log("data", data);
       commit("SET_COMMENTS_LOADING", false);
       commit("ADD_COMMENTS", data.comments.docs);
       commit("SET_META", data.comments);
