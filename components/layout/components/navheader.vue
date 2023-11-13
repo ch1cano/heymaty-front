@@ -32,7 +32,7 @@
 							</div>
 						</div>
 						<div
-							@click="goTo(localePath(`/profile/${getLink(user)}`))"
+							@click="goTo(localePath(`/Settings/Models`))"
 							class="header-profile__item"
 						>
 							<img

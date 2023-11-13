@@ -1,18 +1,18 @@
 <template>
-<div>
-  <!-- <div class="index-filter flex">
-    <SearchSelector />
-  </div> -->
-  <div class="index-filter flex">
-    <CountriesSelector />
-    <CitiesSelector />
-    <AgesSelector />
-    <LanguagesSelector />
-    <button @click="onClick">
+	<div class="wrappersearch">
+		<!-- <div class="index-filter flex">
+			<SearchSelector />
+		</div> -->
+		<div class="index-filter">
+			<CountriesSelector />
+			<CitiesSelector />
+			<AgesSelector />
+			<LanguagesSelector />
+			<!-- <button @click="onClick">
       {{ $t("index.searchButtonText") }}
-    </button>
-  </div>
-</div>
+    </button> -->
+		</div>
+	</div>
 </template>
 <script>
 import CountriesSelector from "./CountriesSelector";
@@ -22,19 +22,24 @@ import AgesSelector from "./AgesSelector";
 import LanguagesSelector from "./LanguagesSelector";
 
 export default {
-  name: "MainFilter",
-  components: {
-    SearchSelector,
-    CountriesSelector,
-    CitiesSelector,
-    AgesSelector,
-    LanguagesSelector,
-  },
-  methods: {
-    onClick() {
-      this.$emit("doFilter");
-    },
-  },
+	name: "MainFilter",
+	components: {
+		SearchSelector,
+		CountriesSelector,
+		CitiesSelector,
+		AgesSelector,
+		LanguagesSelector,
+	},
+	// methods: {
+	//   onClick() {
+	//     this.$emit("doFilter");
+	//   },
+	// },
 };
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+// .wrappersearch {
+// 	display: flex;
+// 	flex-wrap: wrap;
+// }
+</style>
