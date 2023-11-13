@@ -1,0 +1,16 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="bi:coin" clip-path="url(#clip0_449_4350)">
+<g id="Group 40">
+<circle id="Ellipse 16" cx="10" cy="10" r="9.39453" stroke="#A8B2C5" stroke-width="1.13333" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="Group">
+<circle id="Ellipse 16_2" cx="10" cy="9.99999" r="7.17484" stroke="#A8B2C5" stroke-width="0.38735" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path id="Vector 25" d="M8.25531 8.01724L8.25532 8.01724C8.6647 7.87831 8.92605 7.98698 9.11899 8.14108C9.341 8.31841 9.47839 8.56985 9.52672 8.67246C9.73951 9.12431 10.3671 9.12246 10.5928 8.69831C10.6436 8.60292 10.7887 8.36367 11.0197 8.18738C11.2302 8.02673 11.5074 7.91712 11.9048 8.02686C12.3172 8.14075 12.6443 8.5115 12.7371 9.03875C12.8283 9.55665 12.6819 10.2099 12.1286 10.7862C11.6485 11.2862 10.9002 11.8278 10.3585 12.1912C10.179 12.3116 9.9501 12.3116 9.77057 12.1912C9.22877 11.8279 8.48032 11.2862 8.00027 10.7862C6.88263 9.62207 7.42504 8.29899 8.25531 8.01724Z" fill="#A8B2C5" stroke="#A8B2C5" stroke-width="1.13333" stroke-linecap="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_449_4350">
+<rect width="20" height="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>
