@@ -514,7 +514,7 @@ main {
 	background: #fff;
 	border-radius: 10px;
 	box-shadow: 0 3px 15px 0 rgba(170, 177, 194, 0.25);
-	border: 1px solid rgba(199, 202, 247, 0.2);
+
 	padding: 0 16px;
 	z-index: 100;
 }
@@ -537,7 +537,6 @@ main {
 	line-height: 24px;
 	font-weight: 500;
 	color: #2a3041;
-	border-bottom: 1px solid rgba(199, 202, 247, 0.4);
 }
 .header .menu-button {
 	width: 46px;
@@ -809,7 +808,50 @@ main {
 
 .comment {
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	justify-content: start;
+	padding-top: 10px;
+}
+.newcom {
+	display: flex;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 21px; /* 131.25% */
+	letter-spacing: -0.5px;
+	padding-bottom: 10px;
+	justify-content: flex-start;
+	width: 97%;
+
+	display: flex;
+	justify-content: space-between;
+}
+.comcontent {
+	margin-left: 10px;
+	display: flex;
+	gap: 8px;
+}
+.namecom {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+.likecom {
+	font-size: 8px;
+}
+.timecom {
+	color: var(--grayscale-gray, #a8b2c5);
+	padding-top: 3px;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+}
+
+.avatarcom {
+	width: 44px;
+	height: 44px;
 }
 
 .wrapper_form {
